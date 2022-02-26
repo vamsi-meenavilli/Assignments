@@ -1,0 +1,41 @@
+1. Write a program for sorting a large list of numbers stored in a file:
+(a) split the large list into multiple sub-lists of size M each (where M can fit in memory)
+(b) sort each sub-list  in-memory and store the sorted lists  in separate files.
+(b) then merge the sorted sub-lists using multi-way merge.
+[You may use any in-memory sorting algorithm for sorting the sub-lists. 
+The large input list may conain a billion i.e. 10^9 numbers.]
+====================================================================
+
+2. Write a program that reads a list of records from a file and 
+stores them in a treap. Each record is of the form <name, priority>, 
+	where name is a 32-character alphanumeric string and 
+	priority is a 4-digit positive integer 
+Implement  the following procedures on treaps: 
+	find(name), findMin, deleteMin, and add(name, priority).
+Note that findMin and deleteMin refer to the minimum priority element.
+
+[A treap is a binary tree arranged 
+ - as a binary search tree by one field (name) and 
+ - as a heap by another field (priority).]
+
+Given a list S, a treap can be constructed by this procedure:
+constructTR(S): 
+(i) Find the minimum priority element m in S.
+(ii) Partition S into LS and GS  such that 
+     all elements with name <= to m.name are in LS
+     and all elements greater than m are in GS.
+(iii) T1 = constructTR(LS); T2 = constructTR(GS)  
+(iv) Make and return a binary tree with m at the root,
+     T1 as left sub-tree and T2 as right sub-tree.
+===========================================================================
+
+
+3. Write a program to read a list of records of the form <loc,x,y>  from  a file 
+ and store them in a hashtable such that 
+ - loc is used as the key for hashing
+ - each bucket is a kd-tree for k=2.
+Note that loc is a string and x and y are positive integers.
+Implement the operations:
+findLoc(str), // find all records with loc==str
+findLocx(str, xval) // find all records with loc==str and x==xval
+addLoc(str,xyval[][],N) // add N records each with loc==str and x==xyval[i][0] and y==xyval[i][1]
